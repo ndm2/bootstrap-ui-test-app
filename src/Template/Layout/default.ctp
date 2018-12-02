@@ -15,9 +15,6 @@ $page = $this->request->getParam('pass')[0];
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css"
               integrity="sha256-4S9ufRr1EqaUFFeM9/52GH68Hs1Sbvx8eFXBWpl8zPI=" crossorigin="anonymous"/>
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css"
-              integrity="sha256-Afz2ZJtXw+OuaPX10lZHY7fN1+FuTE/KdCs+j7WZTGc=" crossorigin="anonymous"/>
 
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -30,8 +27,12 @@ $page = $this->request->getParam('pass')[0];
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"
                 integrity="sha256-jc6y1s/Y+F+78EgCT/lI2lyU7ys+PFYrRSJ6q8/R8+o=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"
-                integrity="sha256-JfF9MVfGdRUxzT4pecjOZq6B+F5EylLQLwcQNg+6+Qk=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-markup-templating.min.js"
+                integrity="sha256-pMuiLxo2EwMAxKJiCvYriP8DK43l9F5GBQX0mSuz5Z4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-php.min.js"
+                integrity="sha256-OLghId7uixH9cRl9BmiTZxGUujGWgpCWYTG4DkCKuMY=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-php-extras.js"
+                integrity="sha256-x28hfWdQzudD3CUypVYRjzTeFP8PFaGTDznHa0782S4=" crossorigin="anonymous"></script>
 
         <style>
             #sidebar {

@@ -1,4 +1,6 @@
 <?php
+
+use Cake\Error\Debugger;
 use Cake\Utility\Text;
 use Cake\View\Form\ArrayContext;
 
@@ -374,11 +376,15 @@ foreach (collection($controls)->unfold() as $title => $config) {
     <div class="example p-4">
         <div class="control p-3 mb-4">
             <?php
+            $configOptions = $config;
+
             echo $this->Form->create($context, $formOptions);
             if (isset($config['_controls'])) {
                 $code = '';
+                $configOptions = [];
                 foreach ($config['_controls'] as $controlTitle => $controlConfig) {
                     $code .= $this->control($controlTitle, $controlConfig);
+                    $configOptions[] = $controlConfig;
                 }
             } else {
                 $code = $this->control($title, $config);
@@ -387,7 +393,11 @@ foreach (collection($controls)->unfold() as $title => $config) {
             echo $this->Form->end();
             ?>
         </div>
-        <?= $this->element('code', ['id' => $field, 'code' => $code]); ?>
+        <?= $this->element('code', [
+            'id' => $field,
+            'code' => $code,
+            'config' => Debugger::exportVar($configOptions, 6)
+        ]); ?>
     </div>
     <hr>
     <?php
