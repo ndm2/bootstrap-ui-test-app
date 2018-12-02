@@ -35,6 +35,10 @@ $page = $this->request->getParam('pass')[0];
                 integrity="sha256-x28hfWdQzudD3CUypVYRjzTeFP8PFaGTDznHa0782S4=" crossorigin="anonymous"></script>
 
         <style>
+            #mainMenuNavbar {
+                box-shadow: 0 0 2rem 0 rgba(0, 0, 0, .5);
+            }
+
             #sidebar {
                 position: fixed;
                 height: 100%;
@@ -45,9 +49,10 @@ $page = $this->request->getParam('pass')[0];
                 height: 100%;
                 display: block;
                 position: relative;
+                font-size: .8rem;
             }
             #sidebar .nav .sidebar-heading {
-                font-size: .75rem;
+                font-size: inherit;
                 text-transform: uppercase;
                 border-bottom: 1px solid #ddd;
             }
@@ -106,7 +111,7 @@ $page = $this->request->getParam('pass')[0];
     </head>
     <body class="home" data-spy="scroll" data-target="#sidebar">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="mainMenuNavbar">
                 <a class="navbar-brand" href="#">Bootstrap UI Test</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu">
                     <span class="navbar-toggler-icon"></span>
