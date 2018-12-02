@@ -46,6 +46,7 @@ $page = $this->request->getParam('pass')[0];
             }
             #sidebar .nav {
                 overflow-y: scroll;
+                overscroll-behavior: contain;
                 height: 100%;
                 display: block;
                 position: relative;
