@@ -289,6 +289,76 @@ $controls = [
             ],
             'inline' => true,
         ],
+        'radio (inline, nested)' => [
+            'type' => 'radio',
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+            'inline' => true,
+            'nestedInput' => true,
+        ],
+        'radio (per option config)' => [
+            'type' => 'radio',
+            'options' => [
+                1 => 'option 1',
+                2 => [
+                    'value' => 10,
+                    'text' => 'option 2',
+                    'class' => 'form-check-input customInputClass',
+                    'label' => [
+                        'class' => 'form-check-label customLabelClass'
+                    ]
+                ],
+                3 => [
+                    'value' => 20,
+                    'text' => 'option 3',
+                    'label' => false
+                ],
+            ],
+        ],
+        'radio (per option config, inline)' => [
+            'type' => 'radio',
+            'options' => [
+                1 => 'option 1',
+                2 => [
+                    'value' => 10,
+                    'text' => 'option 2',
+                    'class' => 'form-check-input customInputClass',
+                    'label' => [
+                        'class' => 'form-check-label customLabelClass'
+                    ]
+                ],
+                3 => [
+                    'value' => 20,
+                    'text' => 'option 3',
+                    'label' => false
+                ],
+            ],
+            'inline' => true,
+        ],
+        'radio (per option config, inline, nested)' => [
+            'type' => 'radio',
+            'options' => [
+                1 => 'option 1',
+                2 => [
+                    'value' => 10,
+                    'text' => 'option 2',
+                    'class' => 'form-check-input customInputClass',
+                    'label' => [
+                        'class' => 'form-check-label customLabelClass'
+                    ]
+                ],
+                3 => [
+                    'value' => 20,
+                    'text' => 'option 3',
+                    'label' => false
+                ],
+            ],
+            'inline' => true,
+            'nestedInput' => true,
+        ],
     ],
     'datetime' => [
         'datetime' => [
