@@ -251,15 +251,52 @@ $controls = [
     ],
     'checkbox' => [
         'checkbox' => [
-            'type' => 'checkbox',
+            '_controls' => [
+                'checkbox 1' => [
+                    'type' => 'checkbox',
+                ],
+                'checkbox 2' =>[
+                    'type' => 'checkbox',
+                ],
+            ],
         ],
         'checkbox (nested)' => [
-            'type' => 'checkbox',
-            'nestedInput' => true,
+            '_controls' => [
+                'checkbox (nested) 1' => [
+                    'type' => 'checkbox',
+                    'nestedInput' => true,
+                ],
+                'checkbox (nested) 2' =>[
+                    'type' => 'checkbox',
+                    'nestedInput' => true,
+                ],
+            ],
         ],
         'checkbox (inline)' => [
-            'type' => 'checkbox',
-            'inline' => true,
+            '_controls' => [
+                'checkbox (inline) 1' => [
+                    'type' => 'checkbox',
+                    'inline' => true,
+                ],
+                'checkbox (inline) 2' =>[
+                    'type' => 'checkbox',
+                    'inline' => true,
+                ],
+            ],
+        ],
+        'checkbox (inline, nested)' => [
+            '_controls' => [
+                'checkbox (inline, nested) 1' => [
+                    'type' => 'checkbox',
+                    'inline' => true,
+                    'nestedInput' => true,
+                ],
+                'checkbox (inline, nested) 2' =>[
+                    'type' => 'checkbox',
+                    'inline' => true,
+                    'nestedInput' => true,
+                ],
+            ],
         ],
     ],
     'radio' => [
