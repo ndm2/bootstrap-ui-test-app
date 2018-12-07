@@ -23,6 +23,17 @@ $items = [
     'breadcrumbs' => $this->Breadcrumbs
         ->add('jadb', '/jadb')
         ->add('admad')
+        ->add('joe')
+        ->prepend('first')
+        ->insertAt(2, 'at index 2')
+        ->insertAfter('admad', 'after admad', '/after admad')
+        ->insertBefore('joe', 'before joe')
+        ->render(),
+
+    'breadcrumbs (current as link)' => $this->Breadcrumbs
+        ->reset()
+        ->add('jadb', '/jadb')
+        ->add('admad')
         ->add('joe', '/joe')
         ->prepend('first')
         ->insertAt(2, 'at index 2')
