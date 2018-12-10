@@ -7,10 +7,10 @@
         "ext-dom": "*",
         "ext-json": "*",
         "ext-libxml": "*",
-        "cakephp/cakephp": "3.6.*",
+        "cakephp/cakephp": "3.7.*",
         "cakephp/migrations": "^1.8.0",
         "cakephp/plugin-installer": "^1.0",
-        "friendsofcake/bootstrap-ui": "dev-develop#dec49e4",
+        "friendsofcake/bootstrap-ui": "dev-develop",
         "josegonzalez/dotenv": "3.*",
         "mobiledetect/mobiledetectlib": "2.*"
     },
