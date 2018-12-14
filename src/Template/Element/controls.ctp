@@ -321,17 +321,6 @@ $controls = [
             ],
             'custom' => true,
         ],
-        'select (custom, checkbox, nested)' => [
-            'type' => 'select',
-            'multiple' => 'checkbox',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-            'nestedInput' => true,
-        ],
         'select (custom, checkbox, inline)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
@@ -342,18 +331,6 @@ $controls = [
             ],
             'custom' => true,
             'inline' => true,
-        ],
-        'select (custom, checkbox, inline, nested)' => [
-            'type' => 'select',
-            'multiple' => 'checkbox',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-            'inline' => true,
-            'nestedInput' => true,
         ],
         'select (custom, checkbox, groups)' => [
             'type' => 'select',
@@ -383,35 +360,6 @@ $controls = [
             ],
             'custom' => true,
         ],
-        'select (custom, checkbox, groups, nested)' => [
-            'type' => 'select',
-            'multiple' => 'checkbox',
-            'options' => [
-                'group 1' => [
-                    1 => 'option 1',
-                    2 => 'option 2'
-                ],
-                'group 2' => [
-                    3 => 'option 3',
-                    4 => 'option 4',
-                    5 => [
-                        'value' => 10,
-                        'text' => 'option 5',
-                        'class' => 'custom-control-input customInputClass',
-                        'label' => [
-                            'class' => 'custom-control-label customLabelClass'
-                        ]
-                    ],
-                    6 => [
-                        'value' => 20,
-                        'text' => 'option 6',
-                        'label' => false
-                    ],
-                ],
-            ],
-            'custom' => true,
-            'nestedInput' => true,
-        ],
         'select (custom, checkbox, groups, inline)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
@@ -440,36 +388,6 @@ $controls = [
             ],
             'custom' => true,
             'inline' => true,
-        ],
-        'select (custom, checkbox, groups, inline, nested)' => [
-            'type' => 'select',
-            'multiple' => 'checkbox',
-            'options' => [
-                'group 1' => [
-                    1 => 'option 1',
-                    2 => 'option 2'
-                ],
-                'group 2' => [
-                    3 => 'option 3',
-                    4 => 'option 4',
-                    5 => [
-                        'value' => 10,
-                        'text' => 'option 5',
-                        'class' => 'custom-control-input customInputClass',
-                        'label' => [
-                            'class' => 'custom-control-label customLabelClass'
-                        ]
-                    ],
-                    6 => [
-                        'value' => 20,
-                        'text' => 'option 6',
-                        'label' => false
-                    ],
-                ],
-            ],
-            'custom' => true,
-            'inline' => true,
-            'nestedInput' => true,
         ],
     ],
     'checkbox' => [
@@ -535,20 +453,6 @@ $controls = [
                 ],
             ],
         ],
-        'checkbox (custom, nested)' => [
-            '_controls' => [
-                'checkbox (custom, nested) 1' => [
-                    'type' => 'checkbox',
-                    'custom' => true,
-                    'nestedInput' => true,
-                ],
-                'checkbox (custom, nested) 2' =>[
-                    'type' => 'checkbox',
-                    'custom' => true,
-                    'nestedInput' => true,
-                ],
-            ],
-        ],
         'checkbox (custom, inline)' => [
             '_controls' => [
                 'checkbox (custom, inline) 1' => [
@@ -560,22 +464,6 @@ $controls = [
                     'type' => 'checkbox',
                     'custom' => true,
                     'inline' => true,
-                ],
-            ],
-        ],
-        'checkbox (custom, inline, nested)' => [
-            '_controls' => [
-                'checkbox (custom, inline, nested) 1' => [
-                    'type' => 'checkbox',
-                    'custom' => true,
-                    'inline' => true,
-                    'nestedInput' => true,
-                ],
-                'checkbox (custom, inline, nested) 2' =>[
-                    'type' => 'checkbox',
-                    'custom' => true,
-                    'inline' => true,
-                    'nestedInput' => true,
                 ],
             ],
         ],
@@ -688,16 +576,6 @@ $controls = [
             ],
             'custom' => true,
         ],
-        'radio (custom, nested)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'nestedInput' => true,
-            'custom' => true,
-        ],
         'radio (custom, inline)' => [
             'type' => 'radio',
             'options' => [
@@ -707,17 +585,6 @@ $controls = [
             ],
             'custom' => true,
             'inline' => true,
-        ],
-        'radio (custom, inline, nested)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-            'inline' => true,
-            'nestedInput' => true,
         ],
         'radio (custom, per option config)' => [
             'type' => 'radio',
@@ -759,28 +626,6 @@ $controls = [
             ],
             'custom' => true,
             'inline' => true,
-        ],
-        'radio (custom, per option config, inline, nested)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'option 1',
-                2 => [
-                    'value' => 10,
-                    'text' => 'option 2',
-                    'class' => 'custom-control-input customInputClass',
-                    'label' => [
-                        'class' => 'custom-control-label form-check-label customLabelClass'
-                    ]
-                ],
-                3 => [
-                    'value' => 20,
-                    'text' => 'option 3',
-                    'label' => false
-                ],
-            ],
-            'custom' => true,
-            'inline' => true,
-            'nestedInput' => true,
         ],
     ],
     'datetime' => [
