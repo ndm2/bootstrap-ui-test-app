@@ -297,12 +297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
-                "reference": "3e649da9f5396becc6bb18d1a74a2335043d67a8"
+                "reference": "b3313371acfa70f35d7b3d85421f2ffc3180fabf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/3e649da9f5396becc6bb18d1a74a2335043d67a8",
-                "reference": "3e649da9f5396becc6bb18d1a74a2335043d67a8",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/b3313371acfa70f35d7b3d85421f2ffc3180fabf",
+                "reference": "b3313371acfa70f35d7b3d85421f2ffc3180fabf",
                 "shasum": ""
             },
             "require": {
@@ -340,7 +340,7 @@
                 "cakephp",
                 "twitter"
             ],
-            "time": "2018-12-10T12:32:56+00:00"
+            "time": "2018-12-14T20:02:13+00:00"
         },
         {
             "name": "josegonzalez/dotenv",
@@ -1370,16 +1370,16 @@
         },
         {
             "name": "cakephp/bake",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "b69b9200d366634c75d68b2dff1362b16c7a8c1c"
+                "reference": "7ff3b8df337b16d67d9834e6b438d06d9d4974ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/b69b9200d366634c75d68b2dff1362b16c7a8c1c",
-                "reference": "b69b9200d366634c75d68b2dff1362b16c7a8c1c",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/7ff3b8df337b16d67d9834e6b438d06d9d4974ca",
+                "reference": "7ff3b8df337b16d67d9834e6b438d06d9d4974ca",
                 "shasum": ""
             },
             "require": {
@@ -1414,7 +1414,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2018-12-01T03:00:02+00:00"
+            "time": "2018-12-12T07:48:52+00:00"
         },
         {
             "name": "cakephp/cakephp-codesniffer",
@@ -2727,23 +2727,23 @@
         },
         {
             "name": "wyrihaximus/twig-view",
-            "version": "4.3.5",
+            "version": "4.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/TwigView.git",
-                "reference": "ec2771e6a1fe799f9b16eff19da424cd04d593b7"
+                "reference": "54d69c1fd36897120a7e0a9301f95adb93aa929d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/TwigView/zipball/ec2771e6a1fe799f9b16eff19da424cd04d593b7",
-                "reference": "ec2771e6a1fe799f9b16eff19da424cd04d593b7",
+                "url": "https://api.github.com/repos/WyriHaximus/TwigView/zipball/54d69c1fd36897120a7e0a9301f95adb93aa929d",
+                "reference": "54d69c1fd36897120a7e0a9301f95adb93aa929d",
                 "shasum": ""
             },
             "require": {
                 "ajgl/breakpoint-twig-extension": "^0.3.0",
                 "aptoma/twig-markdown": "^2.0",
                 "asm89/twig-cache-extension": "^1.0",
-                "cakephp/cakephp": "^3.5",
+                "cakephp/cakephp": "^3.6",
                 "jasny/twig-extensions": "^1.0",
                 "php": "^5.6 || ^7.0",
                 "twig/twig": "^1.27",
@@ -2781,7 +2781,7 @@
                 "twig",
                 "view"
             ],
-            "time": "2018-07-03T15:46:29+00:00"
+            "time": "2018-12-11T07:04:21+00:00"
         }
     ],
     "aliases": [],
