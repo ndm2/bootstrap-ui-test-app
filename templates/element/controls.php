@@ -632,21 +632,11 @@ $controls = [
         'datetime' => [
             'type' => 'datetime',
         ],
-        'datetime (all)' => [
-            'type' => 'datetime',
-            'second' => true,
-            'timeFormat' => 12,
-        ],
         'date' => [
             'type' => 'date',
         ],
         'time' => [
             'type' => 'time',
-        ],
-        'time (all)' => [
-            'type' => 'time',
-            'second' => true,
-            'timeFormat' => 12,
         ],
     ],
     'file' => [

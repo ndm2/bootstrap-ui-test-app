@@ -5,7 +5,8 @@ use Cake\Utility\Text;
 
 $this->layout = 'default';
 
-$this->Paginator->request = $this->Paginator->request->withParam('paging', [
+$this->Paginator->defaultModel('Model');
+$this->request = $this->request->withAttribute('paging', [
     'Model' => [
         'page' => 4,
         'prevPage' => 3,
