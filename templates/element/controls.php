@@ -774,10 +774,12 @@ foreach (collection($controls)->unfold() as $title => $config) {
                 $code = '';
                 $configOptions = [];
                 foreach ($config['_controls'] as $controlTitle => $controlConfig) {
+                    $controlConfig['tooltip'] = $controlTitle;
                     $code .= $this->control($controlTitle, $controlConfig);
                     $configOptions[] = $controlConfig;
                 }
             } else {
+                $config['tooltip'] = $title;
                 $code = $this->control($title, $config);
             }
             echo $code;
