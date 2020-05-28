@@ -10,7 +10,7 @@
         "cakephp/cakephp": "^4.0",
         "cakephp/migrations": "^3.0",
         "cakephp/plugin-installer": "^1.2",
-        "friendsofcake/bootstrap-ui": "3.0.0-beta",
+        "friendsofcake/bootstrap-ui": "dev-cake-4-bs-4#cc44fd5c1eb18cb136cc7bba4cd15b825d677fbf",
         "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
