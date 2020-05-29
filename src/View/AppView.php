@@ -77,14 +77,15 @@ class AppView extends View
         return implode(PHP_EOL, $formatted);
     }
 
-    public function control($title, $config)
+    public function control($title, &$config)
     {
         $field = Text::slug($title);
 
         $method = 'control';
         $defaults = [
             'label' => 'label text',
-            'help' => 'help text'
+            'help' => 'help text',
+            'tooltip' => $title,
         ];
         if (isset($config['_method'])) {
             $method = $config['_method'];
@@ -92,6 +93,8 @@ class AppView extends View
             $defaults = [];
         }
 
-        return $this->Form->{$method}($field, $config + $defaults);
+        $config += $defaults;
+
+        return $this->Form->{$method}($field, $config);
     }
 }

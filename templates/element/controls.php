@@ -774,12 +774,11 @@ foreach (collection($controls)->unfold() as $title => $config) {
                 $code = '';
                 $configOptions = [];
                 foreach ($config['_controls'] as $controlTitle => $controlConfig) {
-                    $controlConfig['tooltip'] = $controlTitle;
                     $code .= $this->control($controlTitle, $controlConfig);
                     $configOptions[] = $controlConfig;
                 }
+                $config = $configOptions;
             } else {
-                $config['tooltip'] = $title;
                 $code = $this->control($title, $config);
             }
             echo $code;
@@ -789,7 +788,7 @@ foreach (collection($controls)->unfold() as $title => $config) {
         <?= $this->element('code', [
             'id' => $field,
             'code' => $code,
-            'config' => Debugger::exportVar($configOptions, 6)
+            'config' => Debugger::exportVar($config, 6)
         ]); ?>
     </div>
     <hr>
