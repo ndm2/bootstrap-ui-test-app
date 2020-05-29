@@ -34,6 +34,11 @@ use Cake\Routing\Middleware\RoutingMiddleware;
 class Application extends BaseApplication
 {
     /**
+     * @var ClassLoader
+     */
+    protected static $_loader;
+
+    /**
      * Load all the application configuration and bootstrap logic.
      *
      * @return void
@@ -114,5 +119,39 @@ class Application extends BaseApplication
         $this->addPlugin('Migrations');
 
         // Load more plugins here
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function addPlugin($name, array $config = [])
+    {
+        parent::addplugin($name, $config);
+
+        $config += [
+            'autoload' => false,
+            'classBase' => 'src',
+        ];
+
+        if ($config['autoload'] === true) {
+            if (!isset($config['path'])) {
+                $config['path'] =  Plugin::getCollection()->findPath($name);
+            }
+
+            if (empty(static::$_loader)) {
+                static::$_loader = new ClassLoader();
+                static::$_loader->register();
+            }
+            static::$_loader->addNamespace(
+                str_replace('/', '\\', $name),
+                $config['path'] . $config['classBase'] . DIRECTORY_SEPARATOR
+            );
+            static::$_loader->addNamespace(
+                str_replace('/', '\\', $name) . '\Test',
+                $config['path'] . 'tests' . DIRECTORY_SEPARATOR
+            );
+        }
+
+        return $this;
     }
 }
