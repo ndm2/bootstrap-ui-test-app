@@ -8,7 +8,7 @@ $page = $this->request->getParam('pass')[0];
     <head>
         <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bootstrap UI Test</title>
+        <title>Bootstrap UI Test - <?= h(collection($this->request->getParam('pass'))->last()) ?></title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
               integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
