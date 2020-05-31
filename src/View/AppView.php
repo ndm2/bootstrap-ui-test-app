@@ -84,6 +84,7 @@ class AppView extends View
         $method = 'control';
         $defaults = [
             'label' => 'label text',
+            'placeholder' => 'placeholder text',
             'help' => 'help text',
             'tooltip' => $title,
         ];
