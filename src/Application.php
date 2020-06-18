@@ -126,8 +126,6 @@ class Application extends BaseApplication
      */
     public function addPlugin($name, array $config = [])
     {
-        parent::addplugin($name, $config);
-
         $config += [
             'autoload' => false,
             'classBase' => 'src',
@@ -151,6 +149,8 @@ class Application extends BaseApplication
                 $config['path'] . 'tests' . DIRECTORY_SEPARATOR
             );
         }
+
+        parent::addplugin($name, $config);
 
         return $this;
     }
