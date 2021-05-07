@@ -93,6 +93,9 @@ class AppView extends View
             unset($config['_method']);
             $defaults = [];
         }
+        if (!in_array($method, ['control', 'submit'])) {
+            unset($config['container']);
+        }
 
         $config += $defaults;
 

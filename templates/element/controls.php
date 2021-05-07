@@ -10,6 +10,11 @@ if (!isset($formOptions)) {
     $formOptions = [];
 }
 
+$containerOptions = [
+    'class' => 'container-class',
+    'custom' => 'container-attribute',
+];
+
 $controls = [
     'text' => [
         'text' => [
@@ -791,11 +796,17 @@ foreach (collection($controls)->unfold() as $title => $config) {
                 $code = '';
                 $configOptions = [];
                 foreach ($config['_controls'] as $controlTitle => $controlConfig) {
+                    $controlConfig += [
+                        'container' => $containerOptions,
+                    ];
                     $code .= $this->control($controlTitle, $controlConfig);
                     $configOptions[] = $controlConfig;
                 }
                 $config = $configOptions;
             } else {
+                $config += [
+                    'container' => $containerOptions,
+                ];
                 $code = $this->control($title, $config);
             }
             echo $code;
