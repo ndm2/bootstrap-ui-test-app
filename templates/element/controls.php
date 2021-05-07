@@ -756,7 +756,7 @@ foreach (collection($controls)->unfold() as $title => $config) {
         $errors[Text::slug($title)] = ['foo' => 'error message'];
     }
 }
-$context = new ArrayContext($this->request, [
+$context = new ArrayContext([
     'errors' => $errors
 ]);
 

@@ -1,6 +1,7 @@
 {
     "name": "ndm2/bootstrap-ui-test-app",
     "type": "project",
+    "description": "bootstrap-ui plugin test app",
     "license": "MIT",
     "require": {
         "php": ">=7.2",
@@ -9,8 +10,7 @@
         "ext-libxml": "*",
         "cakephp/cakephp": "^4.0",
         "cakephp/migrations": "^3.0",
-        "cakephp/plugin-installer": "^1.2",
-        "friendsofcake/bootstrap-ui": "dev-cake-4-bs-4#cc44fd5c1eb18cb136cc7bba4cd15b825d677fbf",
+        "friendsofcake/bootstrap-ui": "dev-master",
         "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
@@ -40,7 +40,6 @@
     "scripts": {
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
         "check": [
             "@test",
             "@cs-check"
