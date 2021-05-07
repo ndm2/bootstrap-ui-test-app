@@ -27,6 +27,23 @@ $controls = [
             'prepend' => 'P'
         ],
     ],
+    'static' => [
+        'static' => [
+            'type' => 'staticControl',
+            'value' => 'Static <b>Text</b>',
+        ],
+        'static (no escape)' => [
+            'type' => 'staticControl',
+            'value' => 'Static <b>Text</b>',
+            'escape' => false,
+        ],
+        'static (no escape, no label)' => [
+            'type' => 'staticControl',
+            'value' => 'Static <b>Text</b>',
+            'escape' => false,
+            'label' => false,
+        ],
+    ],
     'textarea' => [
         'textarea' => [
             'type' => 'textarea',
