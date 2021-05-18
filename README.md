@@ -17,5 +17,5 @@
 3. Require a specific commit if necessary
 
     ```
-    composer require friendsofcake/bootstrap-ui:dev-cake-4-bs-4#commitHash
+    composer require friendsofcake/bootstrap-ui:dev-master#commitHash
     ```
