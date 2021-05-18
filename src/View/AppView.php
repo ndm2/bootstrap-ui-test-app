@@ -96,6 +96,9 @@ class AppView extends View
         if (!in_array($method, ['control', 'submit'])) {
             unset($config['container']);
         }
+        if ($method !== 'control') {
+            unset($config['label']);
+        }
 
         $config += $defaults;
 

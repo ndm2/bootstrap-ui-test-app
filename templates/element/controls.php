@@ -15,6 +15,12 @@ $containerOptions = [
     'custom' => 'container-attribute',
 ];
 
+$labelOptions = [
+    'text' => 'label text',
+    'class' => 'label-class',
+    'custom' => 'label-attribute',
+];
+
 $controls = [
     'text' => [
         'text' => [
@@ -798,6 +804,7 @@ foreach (collection($controls)->unfold() as $title => $config) {
                 foreach ($config['_controls'] as $controlTitle => $controlConfig) {
                     $controlConfig += [
                         'container' => $containerOptions,
+                        'label' => $labelOptions,
                     ];
                     $code .= $this->control($controlTitle, $controlConfig);
                     $configOptions[] = $controlConfig;
@@ -806,6 +813,7 @@ foreach (collection($controls)->unfold() as $title => $config) {
             } else {
                 $config += [
                     'container' => $containerOptions,
+                    'label' => $labelOptions,
                 ];
                 $code = $this->control($title, $config);
             }
