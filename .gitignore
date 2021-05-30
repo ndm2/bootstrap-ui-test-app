@@ -1,5 +1,9 @@
 /node_modules
+/templates/Articles
+/templates/layout/TwitterBootstrap
+/templates/Users
 /webroot/bootstrap_u_i
+db.sqlite
 package-lock.json
 
 # CakePHP specific files #

@@ -21,6 +21,7 @@ if (!defined('STDIN')) {
 }
 
 use Cake\Utility\Security;
+use Composer\IO\IOInterface;
 use Composer\Script\Event;
 use Exception;
 
@@ -57,7 +58,6 @@ class Installer
 
         $rootDir = dirname(dirname(__DIR__));
 
-        static::createAppLocalConfig($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
 
         static::setFolderPermissions($rootDir, $io);
@@ -67,23 +67,85 @@ class Installer
         if (class_exists($class)) {
             $class::customizeCodeceptionBinary($event);
         }
+
+        static::runMigrationCommands($rootDir, $event->getIO());
+        static::runBootstrapCommands($rootDir, $event->getIO());
+        static::runBakeCommands($rootDir, $event->getIO());
     }
 
     /**
-     * Create config/app_local.php file if it does not exist.
+     * Post update.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @throws \Exception Exception raised by validator.
+     * @return void
+     */
+    public static function postUpdate(Event $event)
+    {
+        $rootDir = dirname(dirname(__DIR__));
+
+        static::runMigrationCommands($rootDir, $event->getIO());
+        static::runBootstrapCommands($rootDir, $event->getIO());
+        static::runBakeCommands($rootDir, $event->getIO());
+    }
+
+    /**
+     * Run migration commands.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
      * @return void
      */
-    public static function createAppLocalConfig($dir, $io)
+    public static function runMigrationCommands(string $dir, IOInterface $io)
     {
-        $appLocalConfig = $dir . '/config/app_local.php';
-        $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
-        if (!file_exists($appLocalConfig)) {
-            copy($appLocalConfigTemplate, $appLocalConfig);
-            $io->write('Created `config/app_local.php` file');
-        }
+        $ds = DIRECTORY_SEPARATOR;
+        $cakeCmd = escapeshellarg("{$dir}{$ds}bin{$ds}cake");
+
+        $dbFile = "{$dir}{$ds}db.sqlite";
+        $io->write("Initializing database file `$dbFile`");
+        file_put_contents($dbFile, '');
+
+        $io->write('Applying migrations');
+        passthru("{$cakeCmd} migrations migrate");
+
+        $io->write('Seeding the database');
+        passthru("{$cakeCmd} migrations seed");
+    }
+
+    /**
+     * Run bootstrap commands.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
+    public static function runBootstrapCommands(string $dir, IOInterface $io)
+    {
+        $ds = DIRECTORY_SEPARATOR;
+        $cakeCmd = escapeshellarg("{$dir}{$ds}bin{$ds}cake");
+
+        $io->write('Running bootstrap install command');
+        passthru("{$cakeCmd} bootstrap install");
+
+        $io->write('Running bootstrap layout copy command');
+        passthru("{$cakeCmd} bootstrap copy_layouts");
+    }
+
+    /**
+     * Run bake commands.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
+    public static function runBakeCommands(string $dir, IOInterface $io)
+    {
+        $ds = DIRECTORY_SEPARATOR;
+        $cakeCmd = escapeshellarg("{$dir}{$ds}bin{$ds}cake");
+
+        $io->write('Baking bootstrap templates');
+        passthru("{$cakeCmd} bake template Articles -f -t BootstrapUI");
+        passthru("{$cakeCmd} bake template Users login -f -t BootstrapUI");
     }
 
     /**
@@ -180,7 +242,7 @@ class Installer
     public static function setSecuritySalt($dir, $io)
     {
         $newKey = hash('sha256', Security::randomBytes(64));
-        static::setSecuritySaltInFile($dir, $io, $newKey, 'app_local.php');
+        static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
     }
 
     /**

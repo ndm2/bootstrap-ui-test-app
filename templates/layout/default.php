@@ -13,19 +13,13 @@ $page = $this->request->getParam('pass')[0];
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-              integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <?= $this->Html->css('BootstrapUI.bootstrap'); ?>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
               integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" />
 
-        <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <?= $this->Html->script('BootstrapUI.popper'); ?>
+        <?= $this->Html->script('BootstrapUI.bootstrap'); ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"
                 integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
@@ -37,6 +31,10 @@ $page = $this->request->getParam('pass')[0];
                 integrity="sha512-+sy0abU58Noo4LGIQwx+VvKp4FnX4/+7v2hBnc5AkXDdQ2Cg/CqExZK8xiTkcdMT/lFExAwEwvVSDLCVzEdujQ==" crossorigin="anonymous"></script>
 
         <style>
+            body {
+                position: relative;
+            }
+
             #mainMenuNavbar {
                 box-shadow: 0 0 2rem 0 rgba(0, 0, 0, .5);
             }
@@ -105,37 +103,87 @@ $page = $this->request->getParam('pass')[0];
         </style>
 
         <script>
-            jQuery(function ($) {
-                $(window).on('activate.bs.scrollspy', function () {
-                    $('#sidebar .nav-link.active').parent().get(0).scrollIntoView({block: 'center'});
+            function updateSidebarScroll() {
+                document.querySelector('#sidebar .nav-link.active').parentElement.scrollIntoView({block: 'center'});
+            }
+
+            window.addEventListener('DOMContentLoaded', function () {
+                window.addEventListener('activate.bs.scrollspy', updateSidebarScroll);
+                window.addEventListener('resize', updateSidebarScroll);
+
+                [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).map(function (element) {
+                    new bootstrap.Tooltip(element);
                 });
-                $('[data-toggle="tooltip"]').tooltip();
             });
         </script>
     </head>
-    <body class="home" data-spy="scroll" data-target="#sidebar">
+    <body class="home" data-bs-spy="scroll" data-bs-target="#sidebar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="mainMenuNavbar">
-                <a class="navbar-brand" href="#">Bootstrap UI Test</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Bootstrap UI Test</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="mainMenu">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item <?= $page === 'default-align' ? 'active' : '' ?>">
-                            <?= $this->Html->link('Default', ['default-align'], ['class' => 'nav-link']) ?>
-                        </li>
-                        <li class="nav-item <?= $page === 'horizontal-align' ? 'active' : '' ?>">
-                            <?= $this->Html->link('Horizontal', ['horizontal-align'], ['class' => 'nav-link']) ?>
-                        </li>
-                        <li class="nav-item <?= $page === 'inline-align' ? 'active' : '' ?>">
-                            <?= $this->Html->link('Inline', ['inline-align'], ['class' => 'nav-link']) ?>
-                        </li>
-                        <li class="nav-item <?= $page === 'other' ? 'active' : '' ?>">
-                            <?= $this->Html->link('Other', ['other'], ['class' => 'nav-link']) ?>
-                        </li>
-                    </ul>
+                    <div class="collapse navbar-collapse" id="mainMenu">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <?= $this->Html->link('Default', ['default-align'], ['class' => 'nav-link' . ($page === 'default-align' ? ' active' : '')]) ?>
+                            </li>
+                            <li class="nav-item">
+                                <?= $this->Html->link('Horizontal', ['horizontal-align'], ['class' => 'nav-link' . ($page === 'horizontal-align' ? ' active' : '')]) ?>
+                            </li>
+                            <li class="nav-item">
+                                <?= $this->Html->link('Inline', ['inline-align'], ['class' => 'nav-link' . ($page === 'inline-align' ? ' active' : '')]) ?>
+                            </li>
+                            <li class="nav-item">
+                                <?= $this->Html->link('Other', ['other'], ['class' => 'nav-link' . ($page === 'other' ? ' active' : '')]) ?>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false"
+                                >
+                                    Templates
+                                </a>
+                                <div class="dropdown-menu">
+                                    <?= $this->Html->link(
+                                        'Index',
+                                        ['controller' => 'Articles', 'action' => 'index'],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                    <?= $this->Html->link(
+                                        'Add',
+                                        ['controller' => 'Articles', 'action' => 'add'],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                    <?= $this->Html->link(
+                                        'Edit',
+                                        ['controller' => 'Articles', 'action' => 'edit', 1],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                    <?= $this->Html->link(
+                                        'View',
+                                        ['controller' => 'Articles', 'action' => 'view', 1],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                    <div class="dropdown-divider"></div>
+                                    <?= $this->Html->link(
+                                        'Login',
+                                        ['controller' => 'Users', 'action' => 'login'],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                    <div class="dropdown-divider"></div>
+                                    <?= $this->Html->link(
+                                        'Cover',
+                                        ['controller' => 'Pages', 'action' => 'display', 'cover'],
+                                        ['class' => 'dropdown-item'])
+                                    ?>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
@@ -145,7 +193,7 @@ $page = $this->request->getParam('pass')[0];
                         <?= $this->fetch('sidebar') ?>
                     </ul>
                 </nav>
-                <main class="col-10 ml-sm-auto px-5" id="main">
+                <main class="col-10 offset-2 ml-sm-auto px-5" id="main">
                     <?= $this->fetch('content') ?>
                 </main>
             </div>
