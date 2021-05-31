@@ -102,6 +102,14 @@ class AppView extends View
 
         $config += $defaults;
 
-        return $this->Form->{$method}($field, $config);
+        $html = '';
+        if ($method === 'control') {
+            $html .= $this->Form->{$method}($field . '-no-error', $config);
+            $html .= $this->Form->{$method}($field . '-error', $config);
+        } else {
+            $html .= $this->Form->{$method}($field, $config);
+        }
+
+        return $html;
     }
 }
