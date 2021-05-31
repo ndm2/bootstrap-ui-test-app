@@ -498,11 +498,11 @@ $controls = [
                 'combined checkbox' => [
                     'type' => 'checkbox',
                 ],
-                'checkbox (inline) 1' => [
+                'combined checkbox (inline) 1' => [
                     'type' => 'checkbox',
                     'inline' => true,
                 ],
-                'checkbox (inline) 2' =>[
+                'combined checkbox (inline) 2' =>[
                     'type' => 'checkbox',
                     'inline' => true,
                 ],
