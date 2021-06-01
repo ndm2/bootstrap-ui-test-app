@@ -106,6 +106,7 @@ class AppView extends View
         if ($method === 'control') {
             $html .= $this->Form->{$method}($field . '-no-error', $config);
             $html .= $this->Form->{$method}($field . '-error', $config);
+            $html .= $this->Form->{$method}($field . '-disabled', ['disabled' => true] + $config);
         } else {
             $html .= $this->Form->{$method}($field, $config);
         }
