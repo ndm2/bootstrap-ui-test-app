@@ -1,5 +1,6 @@
 <?php
 
+use Cake\Error\Debug\TextFormatter;
 use Cake\Error\Debugger;
 use Cake\Utility\Text;
 use Cake\View\Form\ArrayContext;
@@ -751,6 +752,14 @@ $controls = [
                     'type' => 'checkbox',
                     'custom' => true,
                 ],
+                'combined checkbox (inline) 1' => [
+                    'type' => 'checkbox',
+                    'inline' => true,
+                ],
+                'combined checkbox (inline) 2' =>[
+                    'type' => 'checkbox',
+                    'inline' => true,
+                ],
                 'combined submit' => [
                     '_method' => 'submit',
                 ]
@@ -824,7 +833,7 @@ foreach (collection($controls)->unfold() as $title => $config) {
         <?= $this->element('code', [
             'id' => $field,
             'code' => $code,
-            'config' => Debugger::exportVar($config, 6)
+            'config' => (new TextFormatter())->dump(Debugger::exportVarAsNodes($config, 6)),
         ]); ?>
     </div>
     <hr>

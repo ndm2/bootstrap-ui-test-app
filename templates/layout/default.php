@@ -13,19 +13,14 @@ $page = $this->request->getParam('pass')[0];
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-              integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <?= $this->Html->css('BootstrapUI.bootstrap'); ?>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
               integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" />
 
-        <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <?= $this->Html->script('BootstrapUI.jquery'); ?>
+        <?= $this->Html->script('BootstrapUI.popper'); ?>
+        <?= $this->Html->script('BootstrapUI.bootstrap'); ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"
                 integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
@@ -134,6 +129,48 @@ $page = $this->request->getParam('pass')[0];
                         </li>
                         <li class="nav-item <?= $page === 'other' ? 'active' : '' ?>">
                             <?= $this->Html->link('Other', ['other'], ['class' => 'nav-link']) ?>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false"
+                            >
+                                Templates
+                            </a>
+                            <div class="dropdown-menu">
+                                <?= $this->Html->link(
+                                    'Index',
+                                    ['controller' => 'Articles', 'action' => 'index'],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                                <?= $this->Html->link(
+                                    'Add',
+                                    ['controller' => 'Articles', 'action' => 'add'],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                                <?= $this->Html->link(
+                                    'Edit',
+                                    ['controller' => 'Articles', 'action' => 'edit', 1],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                                <?= $this->Html->link(
+                                    'View',
+                                    ['controller' => 'Articles', 'action' => 'view', 1],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                                <div class="dropdown-divider"></div>
+                                <?= $this->Html->link(
+                                    'Login',
+                                    ['controller' => 'Users', 'action' => 'login'],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                                <div class="dropdown-divider"></div>
+                                <?= $this->Html->link(
+                                    'Cover',
+                                    ['controller' => 'Pages', 'action' => 'display', 'cover'],
+                                    ['class' => 'dropdown-item'])
+                                ?>
+                            </div>
                         </li>
                     </ul>
                 </div>
