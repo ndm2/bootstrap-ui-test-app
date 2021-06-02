@@ -787,10 +787,10 @@ $errors = [];
 foreach (collection($controls)->unfold() as $title => $config) {
     if (isset($config['_controls'])) {
         foreach ($config['_controls'] as $controlTitle => $controlConfig) {
-            $errors[Text::slug($controlTitle)] = ['foo' => 'error message'];
+            $errors[Text::slug($controlTitle) . '-error'] = ['foo' => 'error message'];
         }
     } else {
-        $errors[Text::slug($title)] = ['foo' => 'error message'];
+        $errors[Text::slug($title) . '-error'] = ['foo' => 'error message'];
     }
 }
 $context = new ArrayContext([
