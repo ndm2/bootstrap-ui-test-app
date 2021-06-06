@@ -278,6 +278,168 @@ $controls = [
             'nestedInput' => true,
         ],
     ],
+    'multi switch' => [
+        'select (switch)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+        ],
+        'select (switch, nested)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+            'nestedInput' => true,
+        ],
+        'select (switch, inline)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+            'inline' => true,
+        ],
+        'select (switch, inline, nested)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+            'inline' => true,
+            'nestedInput' => true,
+        ],
+        'select (switch, groups)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
+        ],
+        'select (switch, groups, nested)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
+            'nestedInput' => true,
+        ],
+        'select (switch, groups, inline)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
+            'inline' => true,
+        ],
+        'select (switch, groups, inline, nested)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
+            'inline' => true,
+            'nestedInput' => true,
+        ],
+    ],
     'checkbox' => [
         'checkbox' => [
             '_controls' => [
@@ -322,6 +484,64 @@ $controls = [
                 ],
                 'checkbox (inline, nested) 2' =>[
                     'type' => 'checkbox',
+                    'inline' => true,
+                    'nestedInput' => true,
+                ],
+            ],
+        ],
+    ],
+    'switch' => [
+        'switch' => [
+            '_controls' => [
+                'switch 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
+                ],
+                'switch 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
+                ],
+            ],
+        ],
+        'switch (nested)' => [
+            '_controls' => [
+                'switch (nested) 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'nestedInput' => true,
+                ],
+                'switch (nested) 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'nestedInput' => true,
+                ],
+            ],
+        ],
+        'switch (inline)' => [
+            '_controls' => [
+                'switch (inline) 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'inline' => true,
+                ],
+                'switch (inline) 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'inline' => true,
+                ],
+            ],
+        ],
+        'switch (inline, nested)' => [
+            '_controls' => [
+                'switch (inline, nested) 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'inline' => true,
+                    'nestedInput' => true,
+                ],
+                'switch (inline, nested) 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
                     'inline' => true,
                     'nestedInput' => true,
                 ],
