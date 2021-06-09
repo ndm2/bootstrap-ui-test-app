@@ -686,6 +686,11 @@ $controls = [
             'step' => 1,
         ],
     ],
+    'color' => [
+        'color' => [
+            'type' => 'color',
+        ],
+    ],
     'button' => [
         'submit' => [
             '_method' => 'submit',
