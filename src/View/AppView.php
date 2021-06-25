@@ -71,6 +71,12 @@ class AppView extends View
 
         $formatted = [];
         foreach ($dom->childNodes->item(1)->firstChild->childNodes as $node) {
+            if (
+                $node instanceof \DOMText &&
+                $node->isWhitespaceInElementContent()
+            ) {
+                continue;
+            }
             $formatted[] = $dom->saveXML($node);
         }
 

@@ -16,6 +16,24 @@ $this->request = $this->request->withAttribute('paging', [
 ]);
 
 $items = [
+    'icons (aligned sizes)' => implode(
+        ' ',
+        collection(['2xs', 'xs', 'sm', null, 'lg', 'xl', '2xl'])
+            ->map(function ($size) {
+                return $this->Html->icon('info-circle-fill', ['size' => $size]);
+            })
+            ->toArray()
+    ),
+
+    'icons (unaligned sizes)' => implode(
+        ' ',
+        collection(['1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'])
+            ->map(function ($size) {
+                return $this->Html->icon('info-circle-fill', ['size' => $size]);
+            })
+            ->toArray()
+    ),
+
     'badges' =>
         $this->Html->badge('foo') .
         $this->Html->badge('bar', ['class' => 'primary']) .

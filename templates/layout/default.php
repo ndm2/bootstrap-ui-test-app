@@ -14,6 +14,8 @@ $page = $this->request->getParam('pass')[0];
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
         <?= $this->Html->css('BootstrapUI.bootstrap'); ?>
+        <?= $this->Html->css('BootstrapUI./font/bootstrap-icons'); ?>
+        <?= $this->Html->css('BootstrapUI./font/bootstrap-icons-sizes'); ?>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
               integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" />
