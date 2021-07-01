@@ -1,4 +1,5 @@
 <?php
+use Cake\Utility\Inflector;
 use Cake\Utility\Text;
 
 /** @var $this \App\View\AppView */
@@ -34,10 +35,14 @@ $items = [
             ->toArray()
     ),
 
-    'badges' =>
-        $this->Html->badge('foo') .
-        $this->Html->badge('bar', ['class' => 'primary']) .
-        $this->Html->badge('baz', ['class' => 'danger']),
+    'badges' => implode(
+        ' ',
+        collection(['primary', 'secondary', 'success', 'danger', 'warning text-dark', 'info text-dark', 'light text-dark', 'dark'])
+            ->map(function ($style) {
+                return $this->Html->badge(Inflector::humanize($style), ['class' => $style]);
+            })
+            ->toArray()
+    ),
 
     'breadcrumbs' => $this->Breadcrumbs
         ->add('jadb', '/jadb')
