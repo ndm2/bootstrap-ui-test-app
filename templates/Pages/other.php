@@ -73,6 +73,8 @@ $items = [
     ]),
 
     'flash messages' => $this->Flash->render(),
+
+    'flash messages (customized)' => $this->Flash->render('customized'),
 ];
 ?>
 

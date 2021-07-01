@@ -58,8 +58,8 @@ class AppView extends View
         libxml_use_internal_errors($prev);
 
         $validTags = 'article|aside|bdi|details|dialog|figcaption|figure|footer|header|main|mark|menuitem|meter|nav|' .
-                     'progress|rp|rt|ruby|section|summary|time|wbr|datalist|keygen|output|canvas|svg|audio|embed|' .
-                     'source|track|video';
+                     'path|progress|rp|rt|ruby|section|summary|time|wbr|datalist|keygen|output|canvas|svg|audio|' .
+                     'embed|source|track|video';
 
         foreach ($errors as $error) {
             if ($error->code !== 801 ||
