@@ -26,6 +26,11 @@ $controls = [
     'text' => [
         'text' => [
         ],
+        'text (floating label)' => [
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
+        ],
         'text (append control)' => [
             'append' => $this->Form->button('button')
         ],
@@ -60,6 +65,12 @@ $controls = [
         'textarea' => [
             'type' => 'textarea',
         ],
+        'textarea (floating label)' => [
+            'type' => 'textarea',
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
+        ],
         'textarea (append)' => [
             'type' => 'textarea',
             'append' => 'A'
@@ -72,6 +83,17 @@ $controls = [
     'select' => [
         'select' => [
             'type' => 'select',
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+        ],
+        'select (floating label)' => [
+            'type' => 'select',
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
             'options' => [
                 1 => 'foo',
                 2 => 'bar',
