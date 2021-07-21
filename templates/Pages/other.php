@@ -65,12 +65,21 @@ $items = [
         ->insertBefore('joe', 'before joe')
         ->render(),
 
-    'pagination' => $this->Paginator->links([
+    'pagination (links())' => $this->Paginator->links([
         'first' => true,
         'prev' => true,
         'next' => true,
         'last' => true,
     ]),
+
+    'pagination (core methods)' =>
+        '<ul class="pagination">' .
+        $this->Paginator->first('«', ['label' => __('First')]) .
+        $this->Paginator->prev('‹', ['label' => __('Previous')]) .
+        $this->Paginator->numbers() .
+        $this->Paginator->next('›', ['label' => __('Next')]) .
+        $this->Paginator->last('»', ['label' => __('Last')]) .
+        '</ul>',
 
     'flash messages' => $this->Flash->render(),
 
