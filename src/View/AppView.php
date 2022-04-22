@@ -53,13 +53,13 @@ class AppView extends View
         $dom->preserveWhiteSpace = true;
 
         $prev = libxml_use_internal_errors(true);
-        $dom->loadHTML($html);
+        $dom->loadHTML('<?xml encoding="utf-8" ?>' . $html);
         $errors = libxml_get_errors();
         libxml_use_internal_errors($prev);
 
         $validTags = 'article|aside|bdi|details|dialog|figcaption|figure|footer|header|main|mark|menuitem|meter|nav|' .
-                     'progress|rp|rt|ruby|section|summary|time|wbr|datalist|keygen|output|canvas|svg|audio|embed|' .
-                     'source|track|video';
+                     'path|progress|rp|rt|ruby|section|summary|time|wbr|datalist|keygen|output|canvas|svg|audio|' .
+                     'embed|source|track|video';
 
         foreach ($errors as $error) {
             if ($error->code !== 801 ||
@@ -70,7 +70,13 @@ class AppView extends View
         }
 
         $formatted = [];
-        foreach ($dom->childNodes->item(1)->firstChild->childNodes as $node) {
+        foreach ($dom->childNodes->item(2)->firstChild->childNodes as $node) {
+            if (
+                $node instanceof \DOMText &&
+                $node->isWhitespaceInElementContent()
+            ) {
+                continue;
+            }
             $formatted[] = $dom->saveXML($node);
         }
 

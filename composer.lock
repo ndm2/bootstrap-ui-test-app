@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eaef1dde78ee474ee3b071f6c38bb9b5",
+    "content-hash": "1319a21fc2b63292ec542a497db2de2e",
     "packages": [
         {
             "name": "cakephp/cakephp",
@@ -307,16 +307,16 @@
         },
         {
             "name": "friendsofcake/bootstrap-ui",
-            "version": "dev-master",
+            "version": "dev-bs5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
-                "reference": "7dcf72868bfab8a0ca8f68d5e291b62f0db845fa"
+                "reference": "eb70a72c66dc0e722efd1e7f28a8f69399123711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/7dcf72868bfab8a0ca8f68d5e291b62f0db845fa",
-                "reference": "7dcf72868bfab8a0ca8f68d5e291b62f0db845fa",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/eb70a72c66dc0e722efd1e7f28a8f69399123711",
+                "reference": "eb70a72c66dc0e722efd1e7f28a8f69399123711",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,6 @@
                 "cakephp/cakephp-codesniffer": "^4.1",
                 "phpunit/phpunit": "~8.5.0"
             },
-            "default-branch": true,
             "type": "cakephp-plugin",
             "autoload": {
                 "psr-4": {
@@ -360,7 +359,7 @@
                 "issues": "http://github.com/friendsofcake/bootstrap-ui/issues",
                 "source": "http://github.com/friendsofcake/bootstrap-ui"
             },
-            "time": "2021-06-11T15:17:19+00:00"
+            "time": "2021-11-03T23:43:23+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",

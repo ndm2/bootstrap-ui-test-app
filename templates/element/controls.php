@@ -26,6 +26,11 @@ $controls = [
     'text' => [
         'text' => [
         ],
+        'text (floating label)' => [
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
+        ],
         'text (append control)' => [
             'append' => $this->Form->button('button')
         ],
@@ -60,6 +65,12 @@ $controls = [
         'textarea' => [
             'type' => 'textarea',
         ],
+        'textarea (floating label)' => [
+            'type' => 'textarea',
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
+        ],
         'textarea (append)' => [
             'type' => 'textarea',
             'append' => 'A'
@@ -72,6 +83,17 @@ $controls = [
     'select' => [
         'select' => [
             'type' => 'select',
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+        ],
+        'select (floating label)' => [
+            'type' => 'select',
+            'label' => $labelOptions + [
+                'floating' => true,
+            ],
             'options' => [
                 1 => 'foo',
                 2 => 'bar',
@@ -122,67 +144,6 @@ $controls = [
                 3 => 'baz'
             ],
             'prepend' => 'P'
-        ],
-    ],
-    'select (custom)' => [
-        'select (custom)' => [
-            'type' => 'select',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-        ],
-        'select (custom, multiple)' => [
-            'type' => 'select',
-            'multiple' => true,
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-        ],
-        'select (custom, append)' => [
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'append' => 'A',
-            'custom' => true,
-        ],
-        'select (custom, prepend)' => [
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'prepend' => 'P',
-            'custom' => true,
-        ],
-        'select (custom, multiple , append)' => [
-            'type' => 'select',
-            'multiple' => true,
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'append' => 'A',
-            'custom' => true,
-        ],
-        'select (custom, multiple, prepend)' => [
-            'type' => 'select',
-            'multiple' => true,
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'prepend' => 'P',
-            'custom' => true,
         ],
     ],
     'multi checkbox' => [
@@ -339,31 +300,55 @@ $controls = [
             'nestedInput' => true,
         ],
     ],
-    'multi checkbox (custom)' => [
-        'select (custom, checkbox)' => [
+    'multi switch' => [
+        'select (switch)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
+            'switch' => true,
             'options' => [
                 1 => 'foo',
                 2 => 'bar',
                 3 => 'baz'
             ],
-            'custom' => true,
         ],
-        'select (custom, checkbox, inline)' => [
+        'select (switch, nested)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
+            'switch' => true,
             'options' => [
                 1 => 'foo',
                 2 => 'bar',
                 3 => 'baz'
             ],
-            'custom' => true,
+            'nestedInput' => true,
+        ],
+        'select (switch, inline)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
             'inline' => true,
         ],
-        'select (custom, checkbox, groups)' => [
+        'select (switch, inline, nested)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                1 => 'foo',
+                2 => 'bar',
+                3 => 'baz'
+            ],
+            'inline' => true,
+            'nestedInput' => true,
+        ],
+        'select (switch, groups)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
             'options' => [
                 'group 1' => [
                     1 => 'option 1',
@@ -375,9 +360,9 @@ $controls = [
                     5 => [
                         'value' => 10,
                         'text' => 'option 5',
-                        'class' => 'custom-control-input customInputClass',
+                        'class' => 'form-check-input customInputClass',
                         'label' => [
-                            'class' => 'custom-control-label customLabelClass'
+                            'class' => 'form-check-label customLabelClass'
                         ]
                     ],
                     6 => [
@@ -387,11 +372,11 @@ $controls = [
                     ],
                 ],
             ],
-            'custom' => true,
         ],
-        'select (custom, checkbox, groups, inline)' => [
+        'select (switch, groups, nested)' => [
             'type' => 'select',
             'multiple' => 'checkbox',
+            'switch' => true,
             'options' => [
                 'group 1' => [
                     1 => 'option 1',
@@ -403,9 +388,9 @@ $controls = [
                     5 => [
                         'value' => 10,
                         'text' => 'option 5',
-                        'class' => 'custom-control-input customInputClass',
+                        'class' => 'form-check-input customInputClass',
                         'label' => [
-                            'class' => 'custom-control-label customLabelClass'
+                            'class' => 'form-check-label customLabelClass'
                         ]
                     ],
                     6 => [
@@ -415,8 +400,66 @@ $controls = [
                     ],
                 ],
             ],
-            'custom' => true,
+            'nestedInput' => true,
+        ],
+        'select (switch, groups, inline)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
             'inline' => true,
+        ],
+        'select (switch, groups, inline, nested)' => [
+            'type' => 'select',
+            'multiple' => 'checkbox',
+            'switch' => true,
+            'options' => [
+                'group 1' => [
+                    1 => 'option 1',
+                    2 => 'option 2'
+                ],
+                'group 2' => [
+                    3 => 'option 3',
+                    4 => 'option 4',
+                    5 => [
+                        'value' => 10,
+                        'text' => 'option 5',
+                        'class' => 'form-check-input customInputClass',
+                        'label' => [
+                            'class' => 'form-check-label customLabelClass'
+                        ]
+                    ],
+                    6 => [
+                        'value' => 20,
+                        'text' => 'option 6',
+                        'label' => false
+                    ],
+                ],
+            ],
+            'inline' => true,
+            'nestedInput' => true,
         ],
     ],
     'checkbox' => [
@@ -469,30 +512,60 @@ $controls = [
             ],
         ],
     ],
-    'checkbox (custom)' => [
-        'checkbox (custom)' => [
+    'switch' => [
+        'switch' => [
             '_controls' => [
-                'checkbox (custom) 1' => [
+                'switch 1' => [
                     'type' => 'checkbox',
-                    'custom' => true,
+                    'switch' => true,
                 ],
-                'checkbox (custom) 2' =>[
+                'switch 2' =>[
                     'type' => 'checkbox',
-                    'custom' => true,
+                    'switch' => true,
                 ],
             ],
         ],
-        'checkbox (custom, inline)' => [
+        'switch (nested)' => [
             '_controls' => [
-                'checkbox (custom, inline) 1' => [
+                'switch (nested) 1' => [
                     'type' => 'checkbox',
-                    'custom' => true,
+                    'switch' => true,
+                    'nestedInput' => true,
+                ],
+                'switch (nested) 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'nestedInput' => true,
+                ],
+            ],
+        ],
+        'switch (inline)' => [
+            '_controls' => [
+                'switch (inline) 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
                     'inline' => true,
                 ],
-                'checkbox (custom, inline) 2' =>[
+                'switch (inline) 2' =>[
                     'type' => 'checkbox',
-                    'custom' => true,
+                    'switch' => true,
                     'inline' => true,
+                ],
+            ],
+        ],
+        'switch (inline, nested)' => [
+            '_controls' => [
+                'switch (inline, nested) 1' => [
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'inline' => true,
+                    'nestedInput' => true,
+                ],
+                'switch (inline, nested) 2' =>[
+                    'type' => 'checkbox',
+                    'switch' => true,
+                    'inline' => true,
+                    'nestedInput' => true,
                 ],
             ],
         ],
@@ -595,68 +668,6 @@ $controls = [
             'nestedInput' => true,
         ],
     ],
-    'radio (custom)' => [
-        'radio (custom)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-        ],
-        'radio (custom, inline)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'foo',
-                2 => 'bar',
-                3 => 'baz'
-            ],
-            'custom' => true,
-            'inline' => true,
-        ],
-        'radio (custom, per option config)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'option 1',
-                2 => [
-                    'value' => 10,
-                    'text' => 'option 2',
-                    'class' => 'custom-control-input customInputClass',
-                    'label' => [
-                        'class' => 'custom-control-label form-check-label customLabelClass'
-                    ]
-                ],
-                3 => [
-                    'value' => 20,
-                    'text' => 'option 3',
-                    'label' => false
-                ],
-            ],
-            'custom' => true,
-        ],
-        'radio (custom, per option config, inline)' => [
-            'type' => 'radio',
-            'options' => [
-                1 => 'option 1',
-                2 => [
-                    'value' => 10,
-                    'text' => 'option 2',
-                    'class' => 'custom-control-input customInputClass',
-                    'label' => [
-                        'class' => 'custom-control-label form-check-label customLabelClass'
-                    ]
-                ],
-                3 => [
-                    'value' => 20,
-                    'text' => 'option 3',
-                    'label' => false
-                ],
-            ],
-            'custom' => true,
-            'inline' => true,
-        ],
-    ],
     'datetime' => [
         'datetime' => [
             'type' => 'datetime',
@@ -672,40 +683,34 @@ $controls = [
         'file' => [
             'type' => 'file',
         ],
-    ],
-    'file (custom)' => [
-        'file (custom)' => [
+        'file (append control)' => [
             'type' => 'file',
-            'custom' => true,
-        ],
-        'file (custom, append control)' => [
-            'type' => 'file',
-            'custom' => true,
             'append' => $this->Form->button('button'),
         ],
-        'file (custom, prepend control)' => [
+        'file (prepend control)' => [
             'type' => 'file',
-            'custom' => true,
             'prepend' => $this->Form->button('button')
         ],
-        'file (custom, append text)' => [
+        'file (append text)' => [
             'type' => 'file',
-            'custom' => true,
             'append' => 'A'
         ],
-        'file (custom, prepend text)' => [
+        'file (prepend text)' => [
             'type' => 'file',
-            'custom' => true,
             'prepend' => 'P'
         ],
     ],
-    'range (custom)' => [
-        'range (custom)' => [
+    'range' => [
+        'range' => [
             'type' => 'range',
             'min' => 0,
             'max' => 10,
             'step' => 1,
-            'custom' => true,
+        ],
+    ],
+    'color' => [
+        'color' => [
+            'type' => 'color',
         ],
     ],
     'button' => [
@@ -737,20 +742,16 @@ $controls = [
                         2 => 'bar',
                     ],
                 ],
-                'combined radio (custom)' => [
-                    'type' => 'radio',
-                    'options' => [
-                        1 => 'foo',
-                        2 => 'bar',
-                    ],
-                    'custom' => true,
-                ],
                 'combined checkbox' => [
                     'type' => 'checkbox',
                 ],
-                'combined checkbox (custom)' => [
+                'combined checkbox (inline) 1' => [
                     'type' => 'checkbox',
-                    'custom' => true,
+                    'inline' => true,
+                ],
+                'combined checkbox (inline) 2' =>[
+                    'type' => 'checkbox',
+                    'inline' => true,
                 ],
                 'combined checkbox (inline) 1' => [
                     'type' => 'checkbox',

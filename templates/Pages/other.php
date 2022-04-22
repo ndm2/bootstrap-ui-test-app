@@ -1,4 +1,5 @@
 <?php
+use Cake\Utility\Inflector;
 use Cake\Utility\Text;
 
 /** @var $this \App\View\AppView */
@@ -16,10 +17,32 @@ $this->request = $this->request->withAttribute('paging', [
 ]);
 
 $items = [
-    'badges' =>
-        $this->Html->badge('foo') .
-        $this->Html->badge('bar', ['class' => 'primary']) .
-        $this->Html->badge('baz', ['class' => 'danger']),
+    'icons (aligned sizes)' => implode(
+        ' ',
+        collection(['2xs', 'xs', 'sm', null, 'lg', 'xl', '2xl'])
+            ->map(function ($size) {
+                return $this->Html->icon('info-circle-fill', ['size' => $size]);
+            })
+            ->toArray()
+    ),
+
+    'icons (unaligned sizes)' => implode(
+        ' ',
+        collection(['1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'])
+            ->map(function ($size) {
+                return $this->Html->icon('info-circle-fill', ['size' => $size]);
+            })
+            ->toArray()
+    ),
+
+    'badges' => implode(
+        ' ',
+        collection(['primary', 'secondary', 'success', 'danger', 'warning text-dark', 'info text-dark', 'light text-dark', 'dark'])
+            ->map(function ($style) {
+                return $this->Html->badge(Inflector::humanize($style), ['class' => $style]);
+            })
+            ->toArray()
+    ),
 
     'breadcrumbs' => $this->Breadcrumbs
         ->add('jadb', '/jadb')
@@ -42,14 +65,25 @@ $items = [
         ->insertBefore('joe', 'before joe')
         ->render(),
 
-    'pagination' => $this->Paginator->links([
+    'pagination (links())' => $this->Paginator->links([
         'first' => true,
         'prev' => true,
         'next' => true,
         'last' => true,
     ]),
 
+    'pagination (core methods)' =>
+        '<ul class="pagination">' .
+        $this->Paginator->first('«', ['label' => __('First')]) .
+        $this->Paginator->prev('‹', ['label' => __('Previous')]) .
+        $this->Paginator->numbers() .
+        $this->Paginator->next('›', ['label' => __('Next')]) .
+        $this->Paginator->last('»', ['label' => __('Last')]) .
+        '</ul>',
+
     'flash messages' => $this->Flash->render(),
+
+    'flash messages (customized)' => $this->Flash->render('customized'),
 ];
 ?>
 
