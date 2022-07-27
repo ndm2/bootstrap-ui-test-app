@@ -184,6 +184,9 @@ return [
         'skipLog' => [],
         'log' => true,
         'trace' => true,
+        'ignoredDeprecationPaths' => [
+            'config/bootstrap.php',
+        ],
     ],
 
     /*
