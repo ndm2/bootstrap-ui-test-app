@@ -4,7 +4,7 @@
     "description": "bootstrap-ui plugin test app",
     "license": "MIT",
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "ext-dom": "*",
         "ext-json": "*",
         "ext-libxml": "*",
