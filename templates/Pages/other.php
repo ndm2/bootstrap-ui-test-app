@@ -1,4 +1,6 @@
 <?php
+
+use Cake\Datasource\Paging\PaginatedResultSet;
 use Cake\Utility\Inflector;
 use Cake\Utility\Text;
 
@@ -6,15 +8,16 @@ use Cake\Utility\Text;
 
 $this->layout = 'default';
 
-$this->Paginator->defaultModel('Model');
-$this->request = $this->request->withAttribute('paging', [
-    'Model' => [
-        'page' => 4,
-        'prevPage' => 3,
-        'nextPage' => 5,
+$this->Paginator->setPaginated(
+    new PaginatedResultSet(collection([]), [
+        'currentPage' => 4,
+        'hasPrevPage' => true,
+        'hasNextPage' => true,
         'pageCount' => 20,
-    ]
-]);
+        'totalCount' => 100,
+        'count' => 5,
+    ])
+);
 
 $items = [
     'icons (aligned sizes)' => implode(

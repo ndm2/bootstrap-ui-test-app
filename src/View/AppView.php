@@ -13,7 +13,6 @@ declare(strict_types=1);
  * @since     3.0.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
-
 namespace App\View;
 
 use BootstrapUI\View\UIViewTrait;
@@ -23,21 +22,20 @@ use Cake\View\View;
 /**
  * Application View
  *
- * Your application’s default view class
+ * Your application's default view class
  *
- * @link https://book.cakephp.org/3.0/en/views.html#the-app-view
+ * @link https://book.cakephp.org/4/en/views.html#the-app-view
  */
 class AppView extends View
 {
-
     use UIViewTrait;
 
     /**
      * Initialization hook method.
      *
-     * Use this method to add common initialization code like loading helpers.
+     * Use this method to add common initialization code like adding helpers.
      *
-     * e.g. `$this->loadHelper('Html');`
+     * e.g. `$this->addHelper('Html');`
      *
      * @return void
      */
